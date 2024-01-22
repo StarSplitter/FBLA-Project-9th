@@ -10,11 +10,55 @@
 </script>
 
 <template>
-    <h3>Classes</h3>
+    <h2>Classes</h2>
     <ul class="list" id="list">
-        <li v-for="course in courses" :key="course.id" :class="course.weighted ? 'weighted' : ''">{{ course.text }}
-            <span>{{ course.grade }}</span> 
+        <li v-for="course in courses" :key="course.id" :class="course.weighted ? 'weighted' : ''"><span class="course">{{ course.text }}</span>
+            <span class="grade">{{ course.grade }}</span> 
             <button class="delete-btn">x</button>
         </li>
     </ul>
 </template>
+
+<style scoped>
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.list li {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+}
+.list li .course{
+    min-width: 10rem;
+}
+
+.list li .grade{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+.list li.weighted {
+  background-color: #a5def2;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: red;
+  border: 0;
+  color: white;
+  font-size: 2rem;
+  line-height: 20px;
+  padding: 5px;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+</style>

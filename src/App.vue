@@ -24,9 +24,6 @@
     <div id="container">
         <DisplayGPA :unweightedGPA="unweightedGPA"/>
         <ClassList :courses="courses"/>
-        <div class="search-box">
-            <input type="text" placeholder="Your course here..." v-model="course" aria-label="Your course here..." aria-describedby="basic-addon2">
-            <button class="btn btn-outline-secondary" type="button" @click="getCourse(course)">Button</button>
-        </div>
+        <AddClass />
     </div>
 </template>

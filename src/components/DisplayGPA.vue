@@ -14,14 +14,38 @@
 </script>
 
 <template>
-  <div>
-  <h2>Unweighted GPA</h2>
-  <p>{{ unweightedGPA }}</p>
-  </div>
-  <div>
-  <h2>Weighted GPA</h2>
-  <p>{{ weightedGPA }}</p>
+  <div id="gpacontainer">
+    <div>
+      <p>{{ unweightedGPA }}</p>
+      <h3>Unweighted GPA</h3>
+    </div>
+    <div>
+      <p>{{ weightedGPA }}</p>
+      <h3>Weighted GPA</h3>
+    </div>
   </div>
 </template>
   
+<style scoped>
+  #gpacontainer{
+    border: 2px red solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  #gpacontainer div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  h3{
+    margin-top: 0;
+  }
+  
+</style>
   
