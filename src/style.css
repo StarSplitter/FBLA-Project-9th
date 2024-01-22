@@ -10,16 +10,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  height: 100svh;
-  margin-top: 2rem;
+  min-height: 100vh;
+  min-height: 100svh;
   max-width: 1920px;
   font-family: 'Lato', Helvetica, sans-serif;
 }
 
 #container{
   border: 2px solid blue;
-  margin: 2rem 2rem;
+  margin: 0 2rem;
 }
 
 h1{

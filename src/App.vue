@@ -20,8 +20,8 @@
 </script>
 
 <template>
-    <Header />
     <div id="container">
+        <Header />
         <DisplayGPA :unweightedGPA="unweightedGPA"/>
         <ClassList :courses="courses"/>
         <AddClass />
