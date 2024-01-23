@@ -17,12 +17,21 @@
             return a + course.grade;
         }, 0) / courses.value.length;
     });
+    const weightedGPA = computed(() => {
+        return courses.value.reduce((a, course) => {
+            if (course.weighted){
+                return a + course.grade + 1;
+            } else {
+                return a + course.grade;
+            }
+        }, 0) / courses.value.length;
+    });
 </script>
 
 <template>
     <div id="container">
         <Header />
-        <DisplayGPA :unweightedGPA="unweightedGPA"/>
+        <DisplayGPA :unweightedGPA="unweightedGPA" :weightedGPA="weightedGPA"/>
         <ClassList :courses="courses"/>
         <AddClass />
     </div>

@@ -28,7 +28,6 @@
   
 <style scoped>
   #gpacontainer{
-    border: 2px red solid;
     display: flex;
     justify-content: space-around;
     align-items: center;

@@ -20,6 +20,10 @@
 </template>
 
 <style scoped>
+
+h2 {
+  margin-bottom: 0;
+}
 .list {
   list-style-type: none;
   padding: 0;
@@ -33,8 +37,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 1rem;
+  margin: 1rem 0;
 }
 .list li .course{
     min-width: 10rem;
@@ -54,8 +58,8 @@
   border: 0;
   color: white;
   font-size: 2rem;
-  line-height: 20px;
-  padding: 5px;
+  line-height: 1rem;
+  padding: 0.5rem;
 }
 
 .list li:hover .delete-btn {

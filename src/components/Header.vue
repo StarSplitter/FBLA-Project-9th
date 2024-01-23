@@ -11,7 +11,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px red solid;
     margin-top: 2rem;
   }
   #header h1{
