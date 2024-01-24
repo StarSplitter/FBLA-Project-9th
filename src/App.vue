@@ -4,6 +4,9 @@
     import ClassList from "./components/ClassList.vue";
     import AddClass from "./components/AddClass.vue";
     import DisplayGPA from "./components/DisplayGPA.vue";
+    import { useToast } from 'vue-toastification';
+
+    const toast = useToast();
 
     const courses = ref([
         {id: 1, text: "Algebra 2", weighted: false, grade: 4},
@@ -26,6 +29,14 @@
             }
         }, 0) / courses.value.length;
     });
+    const courseSubmitted = (courseData) => {
+        courses.value.push({
+            id: Math.floor(Math.random() * 10000000),
+            text: courseData.text,
+            grade: courseData.grade,
+        });
+        localStorage.setItem('courses', JSON.stringify(courses.value));
+    }
 </script>
 
 <template>
@@ -33,6 +44,6 @@
         <Header />
         <DisplayGPA :unweightedGPA="unweightedGPA" :weightedGPA="weightedGPA"/>
         <ClassList :courses="courses"/>
-        <AddClass />
+        <AddClass @courseSubmitEvent="courseSubmitted"/>
     </div>
 </template>

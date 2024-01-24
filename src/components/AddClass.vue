@@ -5,12 +5,24 @@
     const weightedCourse = ref();
     const courseGrade = ref('');
     const toast = useToast();
-    
-    const Submit = () => {
-    if (!courseName.value || !courseGrade.value || !weightedCourse) {
-        toast.error('Both fields must be filled.');
-        return;
-    }}
+    const emit = defineEmits(['courseSubmitEvent']);
+
+    const Submit = (e) => {
+        if (!courseName.value || !courseGrade.value || !weightedCourse) {
+            toast.error('All fields must be filled!');
+            return;
+        };
+        const data = {
+            text: courseName.value,
+            grade: parseInt(courseGrade.value),
+        };
+        emit('courseSubmitEvent', data);
+        toast.success("Added a course!!");
+        e.target.reset();
+        courseName.value = "";
+        courseGrade.value = null;
+        weightedCourse.value = null;
+    };
 </script>
 
 <template>
@@ -19,7 +31,7 @@
         <label for="courseName">Course Name</label>
         <input type="text" id="courseName" placeholder="Enter your course..." v-model="courseName"/>
         
-        <label for="truefalse">Is the Course AP/IB?</label>
+        <label for="weightedCourse">Is the Course AP/IB?</label>
         <input type="radio" id="true" value=true v-model="weightedCourse" />
         <label for="true">Yes</label>
 
