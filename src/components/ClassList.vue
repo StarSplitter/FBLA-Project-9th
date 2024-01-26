@@ -1,6 +1,6 @@
 <script setup>
     import {defineProps} from 'vue';
-
+    const emit = defineEmits(["courseDeleteEvent"]);
     const props = defineProps({
         courses: {
             type: Array,
@@ -14,7 +14,7 @@
     <ul class="list" id="list">
         <li v-for="course in courses" :key="course.id" :class="course.weighted ? 'weighted' : ''"><span class="course">{{ course.text }}</span>
             <span class="grade">{{ course.grade }}</span> 
-            <button class="delete-btn">x</button>
+            <button class="delete-btn" @click="emit('courseDeleteEvent', course.id);">x</button>
         </li>
     </ul>
 </template>

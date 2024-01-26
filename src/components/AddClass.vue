@@ -5,10 +5,10 @@
     const weightedCourse = ref();
     const courseGrade = ref('');
     const toast = useToast();
-    const emit = defineEmits(['courseSubmitEvent']);
+    const emit = defineEmits(["courseSubmitEvent"]);
 
     const Submit = (e) => {
-        if (!courseName.value || !courseGrade.value || !weightedCourse) {
+        if (!courseName.value || !courseGrade.value || weightedCourse.value === undefined) {
             toast.error('All fields must be filled!');
             return;
         };
@@ -16,12 +16,12 @@
             text: courseName.value,
             grade: parseInt(courseGrade.value),
         };
-        emit('courseSubmitEvent', data);
+        emit("courseSubmitEvent", data);
         toast.success("Added a course!!");
         e.target.reset();
         courseName.value = "";
         courseGrade.value = null;
-        weightedCourse.value = null;
+        weightedCourse.value = undefined;
     };
 </script>
 
