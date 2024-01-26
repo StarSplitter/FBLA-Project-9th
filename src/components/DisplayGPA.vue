@@ -1,4 +1,5 @@
 <script setup>
+  //Importing the gpa variables from app.vue 
   import { defineProps } from 'vue';
   
   const props = defineProps({
@@ -16,11 +17,11 @@
 <template>
   <div id="gpacontainer">
     <div>
-      <p>{{ unweightedGPA }}</p>
+      <p>{{ unweightedGPA.toFixed(3) }}</p>
       <h3>Unweighted GPA</h3>
     </div>
     <div>
-      <p>{{ weightedGPA }}</p>
+      <p>{{ weightedGPA.toFixed(3) }}</p>
       <h3>Weighted GPA</h3>
     </div>
   </div>
@@ -44,7 +45,11 @@
   }
   h3{
     margin-top: 0;
+    font-size: 1.5rem;
   }
-  
+  p{
+    font-size: 2rem;
+    font-weight: bolder;
+  }
 </style>
   

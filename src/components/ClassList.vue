@@ -1,5 +1,7 @@
 <script setup>
-    import {defineProps} from 'vue';
+    //Importing the data variable from app.vue
+    import {defineProps} from "vue";
+    //This variable, emit, is calculated in App.vue, then gets emitted here as "courseDeleteEvent"
     const emit = defineEmits(["courseDeleteEvent"]);
     const props = defineProps({
         courses: {

@@ -1,29 +1,25 @@
 <script setup>
     import {ref} from 'vue';
-    import { useToast } from 'vue-toastification';
-    const courseName = ref('');
-    const weightedCourse = ref();
-    const courseGrade = ref('');
-    const toast = useToast();
+    const courseName = ref("");
+    const weightedCourse = ref("");
+    const courseGrade = ref("");
     const emit = defineEmits(["courseSubmitEvent"]);
 
     const Submit = (e) => {
-        if (!courseName.value || !courseGrade.value || weightedCourse.value === undefined) {
-            toast.error('All fields must be filled!');
+        if (!courseName.value || !courseGrade.value || weightedCourse.value == null) {
+            alert("All fields must be filled!");
             return;
         };
         const data = {
             text: courseName.value,
             grade: parseInt(courseGrade.value),
-            weightedCourse: weightedCourse.value
+            weightedCourse: parseInt(weightedCourse.value)
         };
-        console.log(data);
         emit("courseSubmitEvent", data);
-        toast.success("Added a course!!");
         e.target.reset();
         courseName.value = "";
-        courseGrade.value = null;
-        weightedCourse.value = undefined;
+        courseGrade.value = "";
+        weightedCourse.value = "";
     };
 </script>
 
@@ -34,10 +30,10 @@
         <input type="text" id="courseName" placeholder="Enter your course..." v-model="courseName"/>
         
         <label for="weightedCourse">Is the Course AP/IB?</label>
-        <input type="radio" id="true" value=true v-model="weightedCourse" />
+        <input type="radio" id="true" value=1 v-model="weightedCourse" />
         <label for="true">Yes</label>
 
-        <input type="radio" id="false" value=false v-model="weightedCourse" />
+        <input type="radio" id="false" value=0 v-model="weightedCourse" />
         <label for="false">No</label>
 
         <label for="courseGrade">What Grade was the course?</label>
