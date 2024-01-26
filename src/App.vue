@@ -1,32 +1,39 @@
 <script setup>
+    //Importing necessary materials and components from vue files and vue-toastification
     import {ref, computed, onMounted} from 'vue';
     import Header from "./components/Header.vue";
     import ClassList from "./components/ClassList.vue";
     import AddClass from "./components/AddClass.vue";
     import DisplayGPA from "./components/DisplayGPA.vue";
     import { useToast } from 'vue-toastification';
+    //Sets variable for the toastification.
     const toast = useToast();
+    //This variable is the array for all of the user's classes.
     const courses = ref([]);
     onMounted(() => {
         const savedData = JSON.parse(localStorage.getItem("courses"));
-
-        if (savedData) {
+        if (savedData === true) {
             courses.value = savedData;
         }
     });
     const unweightedGPA = computed(() => {
+        if (courses.value.length === 0){
+            return 0.0;
+        }
         return courses.value.reduce((a, course) => {
             return a + course.grade;
         }, 0) / courses.value.length;
     });
     const weightedGPA = computed(() => {
-        return courses.value.reduce((a, course) => {
-            if (course.weighted){
-                return a + course.grade + 1;
-            } else {
-                return a + course.grade;
-            }
-        }, 0) / courses.value.length;
+        if (courses.value.length === 0){
+            return 0.0;
+        };
+        //need to fix ahhh!!!
+        return (courses.value.reduce((a, course) => {
+            if (course.weightedCourse === "true"){ return a + course.grade + 1};
+            return a + course.grade;
+        }, 0) 
+        / courses.value.length);
     });
     const courseSubmitted = (courseData) => {
         courses.value.push({

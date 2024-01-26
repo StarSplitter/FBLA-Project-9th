@@ -15,7 +15,9 @@
         const data = {
             text: courseName.value,
             grade: parseInt(courseGrade.value),
+            weightedCourse: weightedCourse.value
         };
+        console.log(data);
         emit("courseSubmitEvent", data);
         toast.success("Added a course!!");
         e.target.reset();
@@ -59,7 +61,6 @@
 
     label {
         font-size:1.5rem;
-        margin: 10px 0;
         display: block;
     }
 
@@ -75,7 +76,7 @@
         border-radius: 5px;
         display: block;
         font-size: 1.5rem;
-        padding: 10px;
+        padding: 0.75rem;
         width: 100%;
     }
 
