@@ -6,7 +6,7 @@
     const emit = defineEmits(["courseSubmitEvent"]);
 
     const Submit = (e) => {
-        if (!courseName.value || !courseGrade.value || weightedCourse.value == null) {
+        if (!courseName.value || !courseGrade.value || weightedCourse.value == undefined) {
             alert("All fields must be filled!");
             return;
         };
@@ -19,7 +19,7 @@
         e.target.reset();
         courseName.value = "";
         courseGrade.value = "";
-        weightedCourse.value = "";
+        weightedCourse.value = undefined;
     };
 </script>
 

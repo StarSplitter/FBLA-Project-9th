@@ -12,7 +12,7 @@
     //the onMounted function happens right after website is loaded
     onMounted(() => {
         const savedData = JSON.parse(localStorage.getItem("courses"));
-        if (savedData === true) {
+        if (savedData) {
             courses.value = savedData;
         }
     });
@@ -40,13 +40,16 @@
             return a + course.grade;
         }, 0) + (courses.value.filter((course) => course.weightedCourse == 1)).length)) / courses.value.length;
     });
+    //This function takes the CourseData from the Form Component
     const courseSubmitted = (courseData) => {
+        //Pushes the new object into the courses data array and sets its values based on the form
         courses.value.push({
             id: Math.floor(Math.random() * 100000000),
             text: courseData.text,
             grade: courseData.grade,
             weightedCourse: courseData.weightedCourse
         });
+        //Sets the data in localStorage
         localStorage.setItem("courses", JSON.stringify(courses.value));
     }
     const courseDeleted = (id) => {
