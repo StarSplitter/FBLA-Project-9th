@@ -12,7 +12,7 @@
 </script>
 
 <template>
-    <h2>Classes</h2>
+    <h2>📚Classes</h2>
     <ul class="list" id="list">
         <li v-for="course in courses" :key="course.id" :class="course.weighted ? 'weighted' : ''"><span class="course">{{ course.text }}</span>
             <span class="grade">{{ course.grade }}</span> 

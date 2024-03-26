@@ -24,7 +24,7 @@
 </script>
 
 <template>
-    <h2>Add a Course</h2> 
+    <h2>📝Add a Course</h2> 
     <form @submit.prevent="Submit">
         <label for="courseName">Course Name</label>
         <input type="text" id="courseName" placeholder="Enter your course..." v-model="courseName"/>
@@ -78,8 +78,8 @@
 
     button {
         cursor: pointer;
-        background-color: lightblue;
-        color:white;
+        background-color: #add8e6;
+        color:#000000;
         border: 1px solid black;
         border-radius: 10px;
         font-size: 2rem;
@@ -88,6 +88,6 @@
         width: 100%;
     }
     button:hover{
-        color:blue;
+        color:#0000ff;
     }
 </style>
