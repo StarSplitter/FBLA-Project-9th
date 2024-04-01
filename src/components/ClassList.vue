@@ -14,7 +14,8 @@
 <template>
     <h2>📚Classes</h2>
     <ul class="list" id="list">
-        <li v-for="course in courses" :key="course.id" :class="course.weighted ? 'weighted' : ''"><span class="course">{{ course.text }}</span>
+        <li v-for="course in courses" :key="course.id" :class="course.weighted ? 'weighted' : ''">
+            <span class="course">{{ course.text }}</span>
             <span class="grade">{{ course.grade }}</span> 
             <button class="delete-btn" @click="emit('courseDeleteEvent', course.id);">x</button>
         </li>
